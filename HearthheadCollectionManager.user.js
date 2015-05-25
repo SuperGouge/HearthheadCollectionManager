@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Hearthhead Collection Manager
+// @name        HearthheadCollectionManager
 // @namespace   https://github.com/SuperGouge
 // @homepageURL https://github.com/SuperGouge/HearthheadCollectionManager
 // @include     http://www.hearthhead.com/collection
