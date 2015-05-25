@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name        Hearthhead Collection Manager
 // @namespace   https://github.com/SuperGouge
+// @homepageURL https://github.com/SuperGouge/HearthheadCollectionManager
 // @include     http://www.hearthhead.com/collection
 // @version     1.0.0
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js
