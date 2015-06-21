@@ -4,25 +4,41 @@
 // @homepageURL https://github.com/SuperGouge/HearthheadCollectionManager
 // @match       http://*.hearthhead.com/collection
 // @version     1.0.1
-// @require     https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js
+// @require     https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
+// @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
 // @grant       none
 // ==/UserScript==
 
 this.$ = this.jQuery = jQuery.noConflict(true);
 
+$("head").append (
+    '<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/vader/jquery-ui.min.css" rel="stylesheet" type="text/css">'
+);
+
 const COLLECTABLE_SETS = [3, 13];
 
 $("#viewtoggle").before(
-    $("<a/>", { text: "Export", href: "#", "class": "btn btn-site btn-small" }).click(function(event) {
+    $("<a/>", { text: "Export", href: "#", class: "btn btn-site btn-small", css: { marginLeft: "5px", float: "right" } }).click(function(event) {
         event.preventDefault();
         var idString = "";
         $.each(HearthstoneCollectionUpdates.userCards, function(id, card) {
             idString += g_hearthstone_cards[id].image + ":" + card.normal + ":" + card.golden + ";";
         });
-        prompt("Copy this text to clipboard:", idString);
+        var dialog = '<div id=dialogexport><form><input type="text" name="export" id="export" style="width: 300px;" value="' + idString + '" /></form></div>';
+        $("body").append(dialog);
+        $("#dialogexport").prop("title", "Copy this text to clipboard:");
+        $("#dialogexport").dialog({
+            modal: true,
+            minWidth: 360,
+            buttons: {
+                OK: function() {
+                    $( this ).dialog( "close" );
+                }
+            }
+        });
     })
 ).before(
-    $("<a/>", { text: "Import", href: "#", "class": "btn btn-site btn-small", css: { marginLeft: "5px" } }).click(function(event) {
+    $("<a/>", { text: "Import", href: "#", class: "btn btn-site btn-small", css: { marginLeft: "5px", float: "right" } }).click(function(event) {
         event.preventDefault();
         var idString = prompt("Paste ID string to import:");
         if (!idString) {
