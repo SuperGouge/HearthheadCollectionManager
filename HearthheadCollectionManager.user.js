@@ -3,9 +3,9 @@
 // @namespace   https://github.com/SuperGouge
 // @homepageURL https://github.com/SuperGouge/HearthheadCollectionManager
 // @match       http://*.hearthhead.com/collection
-// @version     1.0.2
+// @version     1.0.3
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
-// @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js
+// @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js
 // @grant       none
 // ==/UserScript==
 
