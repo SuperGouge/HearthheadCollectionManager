@@ -3,7 +3,7 @@
 // @namespace   https://github.com/SuperGouge
 // @homepageURL https://github.com/SuperGouge/HearthheadCollectionManager
 // @match       http://*.hearthhead.com/collection
-// @version     1.0.3
+// @version     1.0.4
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
 // @require     https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js
 // @grant       none
@@ -53,7 +53,7 @@ $("#viewtoggle").before(
         $dialog.dialog("option", "buttons", {
             OK: function() {
                 var idString = $textarea.val().trim();
-                if (!/(\d+:[0-2]:[0-2];)+/.test(idString)) {
+                if (!/^(\w+:[0-2]:[0-2];)+$/.test(idString)) {
                     $textarea.css("border-color", "red");
                 } else {
                     setTimeout(function() {
